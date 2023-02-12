@@ -4,11 +4,8 @@ package com.Dmitry_Elkin.PracticeTaskCRUD;
 
 import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.HibernateUtil;
 import com.Dmitry_Elkin.PracticeTaskCRUD.view.MainView;
-import jakarta.persistence.metamodel.EntityType;
-import jakarta.persistence.metamodel.Metamodel;
 import org.flywaydb.core.Flyway;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
