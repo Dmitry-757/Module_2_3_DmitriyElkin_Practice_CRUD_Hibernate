@@ -20,13 +20,16 @@ public class HibernateUtil {
     static {
         try {
             Properties properties= new Properties();
-            properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/proselyte_developers_hibernate_db");
-            properties.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
             properties.setProperty("hibernate.connection.username", "root");
             properties.setProperty("hibernate.connection.password", "dingo1975");
-            properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+//            properties.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/proselyte_developers_hibernate_db");
+//            properties.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
+//            properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+            properties.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/proselyte_developers_hibernate_db");
+            properties.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
+            properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
             properties.setProperty("hibernate.show_sql", "true");
-//            properties.setProperty("hibernate.hbm2ddl.auto", "update");
+//            properties.setProperty("hibernate.hbm2ddl.auto", "create");
 //            properties.setProperty("hibernate.hbm2ddl.auto", "none");
 
             sessionFactory = new Configuration()

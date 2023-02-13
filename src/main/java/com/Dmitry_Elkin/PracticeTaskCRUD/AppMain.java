@@ -6,14 +6,13 @@ import com.Dmitry_Elkin.PracticeTaskCRUD.view.MainView;
 import org.flywaydb.core.Flyway;
 
 
-
-
 public class AppMain {
 //    private static final Logger logger = LoggerFactory.getLogger(AppMain.class);
 
     private static final String USER = "root";
     private static final String PASS = "dingo1975";
-    private static final String URL = "jdbc:mysql://localhost:3306/proselyte_developers_hibernate_db";
+//    private static final String URL = "jdbc:mysql://localhost:3306/proselyte_developers_hibernate_db";
+    private static final String URL = "jdbc:postgresql://localhost:5432/proselyte_developers_hibernate_db";
 
 
 
@@ -35,7 +34,7 @@ public class AppMain {
 
 
         System.out.println("\nstarting...");
-//        cli.upLevelMenu();
+        cli.upLevelMenu();
 
 //        Session session = HibernateUtil.getSession();
 
