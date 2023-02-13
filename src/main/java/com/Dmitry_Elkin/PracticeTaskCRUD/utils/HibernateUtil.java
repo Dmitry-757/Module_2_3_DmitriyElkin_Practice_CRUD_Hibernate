@@ -24,10 +24,10 @@ public class HibernateUtil {
             properties.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
             properties.setProperty("hibernate.connection.username", "root");
             properties.setProperty("hibernate.connection.password", "dingo1975");
-            properties.setProperty("dialect", "org.hibernate.dialect.MySQLDialect");
-//            properties.setProperty("show_sql", "true");
+            properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+            properties.setProperty("hibernate.show_sql", "true");
 //            properties.setProperty("hibernate.hbm2ddl.auto", "update");
-            properties.setProperty("hibernate.hbm2ddl.auto", "none");
+//            properties.setProperty("hibernate.hbm2ddl.auto", "none");
 
             sessionFactory = new Configuration()
                     .addPackage("com.Dmitry_Elkin.PracticeTaskCRUD.Model")//package where entity is placed
@@ -37,6 +37,7 @@ public class HibernateUtil {
                     .addAnnotatedClass(Skill.class)
                     .addAnnotatedClass(Developer.class)
                     .buildSessionFactory();
+//            sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }

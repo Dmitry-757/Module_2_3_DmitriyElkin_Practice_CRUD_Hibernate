@@ -2,18 +2,14 @@ package com.Dmitry_Elkin.PracticeTaskCRUD;
 
 
 
-import com.Dmitry_Elkin.PracticeTaskCRUD.utils.HibernateUtil;
 import com.Dmitry_Elkin.PracticeTaskCRUD.view.MainView;
 import org.flywaydb.core.Flyway;
-import org.hibernate.Session;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 
 
 public class AppMain {
-    private static final Logger logger = LoggerFactory.getLogger(AppMain.class);
+//    private static final Logger logger = LoggerFactory.getLogger(AppMain.class);
 
     private static final String USER = "root";
     private static final String PASS = "dingo1975";
@@ -45,13 +41,13 @@ public class AppMain {
 
     }
     public static void flyWayMigrations(String url, String user, String pass){
-        logger.info("db migration started...");
+//        logger.info("db migration started...");
         var flyWay = Flyway.configure()
                 .dataSource(url, user, pass)
                 .locations("classpath:/db/migration")
                 .load();
         flyWay.migrate();
-        logger.info("db migration ended...");
-        logger.info(".....................");
+//        logger.info("db migration ended...");
+//        logger.info(".....................");
     }
 }

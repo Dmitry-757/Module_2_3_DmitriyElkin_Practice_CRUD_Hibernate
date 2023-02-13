@@ -4,11 +4,11 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/proselyte_developers_db</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/proselyte_developers_hibernate_db</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">dingo1975</property>
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <!-- DB schema will be updated if needed -->
 <!--         <property name="hibernate.hbm2ddl.auto">none</property> -->
