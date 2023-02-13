@@ -4,7 +4,6 @@ import com.Dmitry_Elkin.PracticeTaskCRUD.model.Developer;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Skill;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Status;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.DeveloperRepository;
 import com.Dmitry_Elkin.PracticeTaskCRUD.utils.JdbcUtils;
 
 import java.sql.*;

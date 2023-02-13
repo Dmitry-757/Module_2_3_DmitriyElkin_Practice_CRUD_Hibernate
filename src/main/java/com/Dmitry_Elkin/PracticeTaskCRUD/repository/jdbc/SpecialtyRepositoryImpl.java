@@ -2,7 +2,6 @@ package com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc;
 
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Status;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.SpecialtyRepository;
 import com.Dmitry_Elkin.PracticeTaskCRUD.utils.JdbcUtils;
 
 import java.sql.*;

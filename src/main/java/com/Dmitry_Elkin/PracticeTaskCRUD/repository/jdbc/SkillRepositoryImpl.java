@@ -3,7 +3,6 @@ package com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Developer;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Skill;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Status;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.SkillRepository;
 import com.Dmitry_Elkin.PracticeTaskCRUD.utils.JdbcUtils;
 
 

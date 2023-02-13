@@ -1,4 +1,4 @@
-package com.Dmitry_Elkin.PracticeTaskCRUD.repository;
+package com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc;
 
 
 import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.DeveloperRepositoryImpl;

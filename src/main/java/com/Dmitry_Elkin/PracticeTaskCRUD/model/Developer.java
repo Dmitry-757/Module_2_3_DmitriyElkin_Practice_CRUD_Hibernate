@@ -132,12 +132,16 @@ public class Developer {
 
     @Override
     public String toString() {
+        String skillsStr = null;
+        if (skills != null){
+            skillsStr = skills.stream().map(Object::toString).collect(Collectors.joining(", "));
+        }
         return "Developer{" +
                 "id=" + id +
                 ", firstName = '" + firstName + '\'' +
                 ", lastName = '" + lastName + '\'' +
                 ", skills = " +
-                skills.stream().map(Object::toString).collect(Collectors.joining(", ")) +
+                skillsStr +
                 ", specialty = " + (specialty != null ? specialty.getName() : "SpecialtyLess ((") +
                 ", status = " + status +
                 '}';

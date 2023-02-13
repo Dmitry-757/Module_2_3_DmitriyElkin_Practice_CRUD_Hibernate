@@ -1,7 +1,10 @@
 package com.Dmitry_Elkin.PracticeTaskCRUD.controller;
 
 
+import com.Dmitry_Elkin.PracticeTaskCRUD.model.Developer;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Skill;
+import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
+import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.DeveloperRepository;
 import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.SkillRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -102,6 +105,16 @@ class SkillsControllerTest {
 //        Mockito.verify(mockRepository).addOrUpdate(new Specialty("Test Specialty"));
 //    }
 
+    @Test
+    public void insertTest(){
+        Specialty specialty = new Specialty("specialty");
+        SpecialtyController specialtyController = new SpecialtyController();
+        specialtyController.insert(specialty);
 
+        DeveloperRepository developerRepository = new DeveloperRepository();
+
+        Developer developer = new Developer("firstName", "lastName", specialty);
+        developerRepository.insert(developer);
+    }
 
 }

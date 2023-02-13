@@ -1,4 +1,4 @@
-package com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate;
+package com.Dmitry_Elkin.PracticeTaskCRUD.utils;
 
 
 
@@ -25,7 +25,7 @@ public class HibernateUtil {
             properties.setProperty("hibernate.connection.username", "root");
             properties.setProperty("hibernate.connection.password", "dingo1975");
             properties.setProperty("dialect", "org.hibernate.dialect.MySQLDialect");
-            properties.setProperty("show_sql", "true");
+//            properties.setProperty("show_sql", "true");
 //            properties.setProperty("hibernate.hbm2ddl.auto", "update");
             properties.setProperty("hibernate.hbm2ddl.auto", "none");
 

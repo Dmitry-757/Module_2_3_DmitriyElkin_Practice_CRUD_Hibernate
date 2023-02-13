@@ -2,13 +2,14 @@ package com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate;
 
 
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
+import com.Dmitry_Elkin.PracticeTaskCRUD.utils.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
 
-public class DAO_Hibernate {
+public class SpecialtyRepository {
 
     public void insert(Specialty item) {
         Session session = HibernateUtil.getSession();
