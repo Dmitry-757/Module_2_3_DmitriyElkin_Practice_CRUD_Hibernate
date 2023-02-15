@@ -2,8 +2,10 @@ package com.Dmitry_Elkin.PracticeTaskCRUD;
 
 
 
+import com.Dmitry_Elkin.PracticeTaskCRUD.utils.HibernateUtil;
 import com.Dmitry_Elkin.PracticeTaskCRUD.view.MainView;
 import org.flywaydb.core.Flyway;
+import org.hibernate.Session;
 
 
 public class AppMain {
@@ -31,12 +33,12 @@ public class AppMain {
             System.out.println(e.getMessage());
         }
 
+        Session session = HibernateUtil.getSession();
 
 
         System.out.println("\nstarting...");
         cli.upLevelMenu();
 
-//        Session session = HibernateUtil.getSession();
 
     }
     public static void flyWayMigrations(String url, String user, String pass){
