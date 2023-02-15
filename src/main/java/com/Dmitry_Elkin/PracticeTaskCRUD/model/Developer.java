@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
 
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Entity
@@ -23,11 +24,17 @@ public class Developer {
     @Column
     private String lastName;
 
-    @OneToMany()
-    private HashSet<Skill> skills;
+//    @ElementCollection(targetClass = Skill.class, fetch = FetchType.EAGER)
+//    @CollectionTable()
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name="developers_skills",
+            joinColumns = @JoinColumn( name="developer_ID"),
+            inverseJoinColumns = @JoinColumn( name="skill_ID")
+    )
+    private Set<Skill> skills = new HashSet<>();
 
     @ManyToOne
-    @JoinColumn(name = "specialtyId", nullable = true)
     private Specialty specialty;
 
     @Basic
@@ -88,7 +95,7 @@ public class Developer {
         this.lastName = lastName;
     }
 
-    public HashSet<Skill> getSkills() {
+    public Set<Skill> getSkills() {
         return skills;
     }
 

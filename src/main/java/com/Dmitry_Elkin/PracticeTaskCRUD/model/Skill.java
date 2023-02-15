@@ -6,6 +6,7 @@ import java.util.Objects;
 
 
 
+//@Embeddable
 @Entity
 @Table(name="skills_tbl")
 public class Skill {
@@ -14,11 +15,9 @@ public class Skill {
     @Column(name = "id", nullable = false)
     private long id;
 
-    @Basic
     @Column
     private String name;
 
-    @Basic
     @Column
     @Enumerated(EnumType.STRING)
     private Status status;

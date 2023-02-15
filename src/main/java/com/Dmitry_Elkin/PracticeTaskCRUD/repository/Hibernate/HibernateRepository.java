@@ -17,6 +17,26 @@ public abstract class HibernateRepository<T> {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         session.persist(item);
+        session.flush();
+        session.close();
+    }
+
+    public void update(T item) {
+        Session session = HibernateUtil.getSession();
+        Transaction tx = session.beginTransaction();
+        session.merge(item);
+        session.flush();
+        tx.commit();
+        session.close();
+    }
+
+    public void delete(long id) {
+        T item = getById(id);
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        session.remove(item);
+        session.getTransaction().commit();
+        session.flush();
         session.close();
     }
 
@@ -36,24 +56,6 @@ public abstract class HibernateRepository<T> {
         itemList = session.createQuery("SELECT r FROM "+className+" r", typeParameterClass).getResultList();
         session.close();
         return itemList;
-    }
-
-
-    public void update(T item) {
-        Session session = HibernateUtil.getSession();
-        Transaction tx = session.beginTransaction();
-        session.merge(item);
-        tx.commit();
-        session.close();
-    }
-
-    public void delete(long id) {
-        T item = getById(id);
-        Session session = HibernateUtil.getSession();
-        session.beginTransaction();
-        session.remove(item);
-        session.getTransaction().commit();
-        session.close();
     }
 
 }

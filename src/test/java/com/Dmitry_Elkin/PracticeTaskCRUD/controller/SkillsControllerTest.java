@@ -5,6 +5,7 @@ import com.Dmitry_Elkin.PracticeTaskCRUD.model.Developer;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Skill;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
 import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.DeveloperRepository;
+import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.SkillRepository;
 import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.SpecialtyRepository;
 import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.SkillRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.lang.reflect.Field;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -112,10 +114,23 @@ class SkillsControllerTest {
         SpecialtyRepository specialtyRepository = new SpecialtyRepository();
         specialtyRepository.insert(specialty);
 
-//        DeveloperRepository developerRepository = new DeveloperRepository();
-//
-//        Developer developer = new Developer("firstName", "lastName", specialty);
-//        developerRepository.insert(developer);
+        Skill skill1 = new Skill("Skill 1");
+        Skill skill2 = new Skill("Skill 2");
+        SkillRepository skillRepository = new SkillRepository();
+        skillRepository.insert(skill1);
+        skillRepository.insert(skill2);
+
+        HashSet<Skill> skills = new HashSet<>();
+        skills.add(skill1);
+        skills.add(skill2);
+
+        DeveloperRepository developerRepository = new DeveloperRepository();
+
+        Developer developer = new Developer("firstName", "lastName", skills, specialty);
+        developerRepository.insert(developer);
+        System.out.println(developer);
+        Developer dev2 = developerRepository.getById(developer.getId());
+        System.out.println(dev2);
     }
 
 }

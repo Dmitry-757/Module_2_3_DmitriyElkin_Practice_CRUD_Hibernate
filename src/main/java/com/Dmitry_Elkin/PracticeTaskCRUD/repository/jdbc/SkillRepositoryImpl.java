@@ -10,6 +10,7 @@ import java.sql.*;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class SkillRepositoryImpl implements SkillRepository {
     private static final String SELECT_ALL = "select * from skills_tbl";
@@ -96,7 +97,7 @@ public class SkillRepositoryImpl implements SkillRepository {
         return itemSet;
     }
 
-    public void setSkills2Developer(HashSet<Skill> skills, Developer item){
+    public void setSkills2Developer(Set<Skill> skills, Developer item){
         HashSet<Skill> currentSkills = getSkillsByDeveloper(item.getId());
         if (currentSkills.equals(skills)){
             return;
