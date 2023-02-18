@@ -2,7 +2,6 @@ package com.Dmitry_Elkin.PracticeTaskCRUD.view;
 
 import com.Dmitry_Elkin.PracticeTaskCRUD.controller.SpecialtyController;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
-import com.Dmitry_Elkin.PracticeTaskCRUD.model.Status;
 
 import static com.Dmitry_Elkin.PracticeTaskCRUD.view.MainView.sc;
 
@@ -14,7 +13,7 @@ public class SpecialtyView {
         boolean goBack = false;
         while (!goBack) {
             System.out.println("1 - New item, 2 - change item, 3 - Delete item, 4 - UnDelete item, " +
-                    "5 - print all items, 6 - print Active items, 7 - print Deleted items, 8 - print item by Id, 0 - go back");
+                    "5 - print all items,  8 - print item by Id, 0 - go back");
             if (sc.hasNextInt()) {
                 int choice = sc.nextInt();
                 sc.nextLine();
@@ -23,9 +22,7 @@ public class SpecialtyView {
                     case 2 -> changeItem();
                     case 3 -> deleteItem();
                     case 4 -> unDeleteItem();
-                    case 5 -> printItems(null);
-                    case 6 -> printItems(Status.ACTIVE);
-                    case 7 -> printItems(Status.DELETED);
+                    case 5 -> printItems();
                     case 8 -> printItemsById();
                     case 0 -> goBack = true;
                     default -> System.out.println("Wrong input!");
@@ -55,8 +52,8 @@ public class SpecialtyView {
         }
     }
 
-    private void printItems(Status status) {
-        ConsoleService.printItems(controller.getAll(status));
+    private void printItems() {
+        ConsoleService.printItems(controller.getAll());
     }
 
     private void printItemsById() {
@@ -66,7 +63,7 @@ public class SpecialtyView {
 
 
     private void deleteItem() {
-        Specialty item = ConsoleService.getItemFromConsole("Specialty",controller.getAll(Status.ACTIVE));
+        Specialty item = ConsoleService.getItemFromConsole("Specialty",controller.getAll());
         if (item != null) {
             System.out.println("deleting item is : " + item);
             controller.delete(item);
@@ -74,7 +71,7 @@ public class SpecialtyView {
     }
 
     private void unDeleteItem() {
-        Specialty item = ConsoleService.getItemFromConsole("Specialty",controller.getAll(Status.DELETED));
+        Specialty item = ConsoleService.getItemFromConsole("Specialty",controller.getAll());
         if (item != null) {
             System.out.println("UnDeleting item is : " + item);
             controller.unDelete(item);

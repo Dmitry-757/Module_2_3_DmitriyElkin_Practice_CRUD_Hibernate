@@ -13,21 +13,23 @@ public abstract class HibernateRepository<T> {
         this.typeParameterClass = typeParameterClass;
     }
 
-    public void insert(T item) {
+    public T insert(T item) {
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         session.persist(item);
         session.flush();
         session.close();
+        return item;
     }
 
-    public void update(T item) {
+    public T update(T item) {
         Session session = HibernateUtil.getSession();
         Transaction tx = session.beginTransaction();
         session.merge(item);
         session.flush();
         tx.commit();
         session.close();
+        return item;
     }
 
     public void delete(long id) {
@@ -41,7 +43,7 @@ public abstract class HibernateRepository<T> {
     }
 
     public T getById(long id) {
-        T item = null;
+        T item;
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         item = session.find(typeParameterClass, id);
@@ -49,7 +51,7 @@ public abstract class HibernateRepository<T> {
         return item;
     }
 
-    public List<T> selectAll() {
+    public List<T> getAll() {
         List<T> itemList;
         Session session = HibernateUtil.getSession();
         String className = typeParameterClass.getName();

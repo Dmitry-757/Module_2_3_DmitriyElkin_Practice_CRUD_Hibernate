@@ -1,22 +1,17 @@
 package com.Dmitry_Elkin.PracticeTaskCRUD.controller;
 
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Skill;
-import com.Dmitry_Elkin.PracticeTaskCRUD.model.Status;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.SkillRepository;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.SkillRepositoryImpl;
+import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.SkillRepository;
 
 import java.util.List;
 
 public class SkillController {
-    private final SkillRepository repository = new SkillRepositoryImpl();
+    private final SkillRepository repository = new SkillRepository();
     public Skill getById(long id){
         return repository.getById(id);
     }
     public List<Skill> getAll(){
         return repository.getAll();
-    }
-    public List<Skill> getAll(Status status){
-        return repository.getAll(status);
     }
 
     public Skill insert(Skill item){

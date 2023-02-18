@@ -1,20 +1,16 @@
 package com.Dmitry_Elkin.PracticeTaskCRUD.controller;
 
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Developer;
-import com.Dmitry_Elkin.PracticeTaskCRUD.model.Status;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.DeveloperRepository;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.DeveloperRepositoryImpl;
+import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.DeveloperRepository;
 
 import java.util.List;
 
 public class DeveloperController {
-    private final DeveloperRepository repository = new DeveloperRepositoryImpl();
+    private final DeveloperRepository repository = new DeveloperRepository();
     public Developer getById(long id){
         return repository.getById(id);
     }
-    public List<Developer> getAll(Status status){
-        return repository.getAll(status);
-    }
+
     public List<Developer> getAll(){
         return repository.getAll();
     }

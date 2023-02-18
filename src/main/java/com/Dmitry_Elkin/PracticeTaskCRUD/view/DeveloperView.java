@@ -7,7 +7,6 @@ import com.Dmitry_Elkin.PracticeTaskCRUD.controller.SpecialtyController;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Developer;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Skill;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
-import com.Dmitry_Elkin.PracticeTaskCRUD.model.Status;
 
 import java.util.HashSet;
 
@@ -26,7 +25,7 @@ public class DeveloperView {
         boolean goBack = false;
         while (!goBack) {
             System.out.println("1 - New item, 2 - change item, 3 - Delete item, 4 - UnDelete item, " +
-                    "5 - print all items, 6 - print Active items, 7 - print Deleted items, 8 - print item by Id, 0 - go back");
+                    "5 - print all items, 8 - print item by Id, 0 - go back");
             if (sc.hasNextInt()) {
                 int choice = sc.nextInt();
                 sc.nextLine();
@@ -35,9 +34,7 @@ public class DeveloperView {
                     case 2 -> changeItem();
                     case 3 -> deleteItem();
                     case 4 -> unDeleteItem();
-                    case 5 -> printItems(null);
-                    case 6 -> printItems(Status.ACTIVE);
-                    case 7 -> printItems(Status.DELETED);
+                    case 5 -> printItems();
                     case 8 -> printItemsById();
                     case 0 -> goBack = true;
                     default -> System.out.println("Wrong input!");
@@ -82,8 +79,8 @@ public class DeveloperView {
 
     }
 
-    private void printItems(Status status) {
-        ConsoleService.printItems(controller.getAll(status));
+    private void printItems() {
+        ConsoleService.printItems(controller.getAll());
     }
     private void printItemsById() {
         long id = ConsoleService.getIntParamFromConsole("id ");
@@ -92,7 +89,7 @@ public class DeveloperView {
 
 
     private void deleteItem() {
-        Developer item = ConsoleService.getItemFromConsole("Developer",controller.getAll(Status.ACTIVE));
+        Developer item = ConsoleService.getItemFromConsole("Developer",controller.getAll());
         if (item != null) {
             System.out.println("deleting item is : " + item);
             controller.delete(item);
@@ -101,7 +98,7 @@ public class DeveloperView {
     }
 
     private void unDeleteItem() {
-        Developer item = ConsoleService.getItemFromConsole("Developer",controller.getAll(Status.DELETED));
+        Developer item = ConsoleService.getItemFromConsole("Developer",controller.getAll());
         if (item != null) {
             System.out.println("UnDeleting item is : " + item);
             controller.unDelete(item);

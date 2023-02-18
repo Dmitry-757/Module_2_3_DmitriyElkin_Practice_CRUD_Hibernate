@@ -1,21 +1,15 @@
 package com.Dmitry_Elkin.PracticeTaskCRUD.controller;
 
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
-import com.Dmitry_Elkin.PracticeTaskCRUD.model.Status;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.SpecialtyRepository;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.SpecialtyRepositoryImpl;
+import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.SpecialtyRepository;
 
 import java.util.List;
 
 public class SpecialtyController {
-    private final SpecialtyRepository repository = new SpecialtyRepositoryImpl();
+    private final SpecialtyRepository repository = new SpecialtyRepository();
 
     public Specialty getById(long id) {
         return repository.getById(id);
-    }
-
-    public List<Specialty> getAll(Status status) {
-        return repository.getAll(status);
     }
 
     public List<Specialty> getAll() {
