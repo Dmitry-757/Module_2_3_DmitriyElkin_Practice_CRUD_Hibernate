@@ -6,7 +6,7 @@ import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.SpecialtyRepositor
 import java.util.List;
 
 public class SpecialtyController {
-    private final SpecialtyRepository repository = new SpecialtyRepository();
+    private SpecialtyRepository repository = new SpecialtyRepository();
 
     public Specialty getById(long id) {
         return repository.getById(id);

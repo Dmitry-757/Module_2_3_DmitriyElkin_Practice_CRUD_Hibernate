@@ -28,7 +28,7 @@ class SkillsControllerTest {
 
 
     @Mock
-    SkillRepositoryImpl mockRepository;
+    SkillRepository mockRepository;
 
     SkillController controller;
 

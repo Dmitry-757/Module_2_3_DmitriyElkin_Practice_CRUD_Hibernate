@@ -6,7 +6,7 @@ import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.SkillRepository;
 import java.util.List;
 
 public class SkillController {
-    private final SkillRepository repository = new SkillRepository();
+    private SkillRepository repository = new SkillRepository();
     public Skill getById(long id){
         return repository.getById(id);
     }

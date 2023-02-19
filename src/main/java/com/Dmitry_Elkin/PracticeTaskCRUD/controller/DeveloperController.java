@@ -6,7 +6,7 @@ import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.DeveloperRepositor
 import java.util.List;
 
 public class DeveloperController {
-    private final DeveloperRepository repository = new DeveloperRepository();
+    private DeveloperRepository repository = new DeveloperRepository();
     public Developer getById(long id){
         return repository.getById(id);
     }
