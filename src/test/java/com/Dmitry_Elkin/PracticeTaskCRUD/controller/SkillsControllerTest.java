@@ -7,7 +7,6 @@ import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
 import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.DeveloperRepository;
 import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.SkillRepository;
 import com.Dmitry_Elkin.PracticeTaskCRUD.repository.Hibernate.SpecialtyRepository;
-import com.Dmitry_Elkin.PracticeTaskCRUD.repository.jdbc.SkillRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -110,7 +109,7 @@ class SkillsControllerTest {
 
     @Test
     public void insertTest(){
-        Specialty specialty = new Specialty("specialty");
+        Specialty specialty = new Specialty("specialty 1");
         SpecialtyRepository specialtyRepository = new SpecialtyRepository();
         specialtyRepository.insert(specialty);
 
@@ -131,6 +130,7 @@ class SkillsControllerTest {
         System.out.println(developer);
         Developer dev2 = developerRepository.getById(developer.getId());
         System.out.println(dev2);
+        assertThat(dev2).isEqualTo(developer);
     }
 
 }

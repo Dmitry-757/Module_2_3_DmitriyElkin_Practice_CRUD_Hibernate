@@ -15,9 +15,10 @@ public abstract class HibernateRepository<T> {
 
     public T insert(T item) {
         Session session = HibernateUtil.getSession();
-        session.beginTransaction();
+        Transaction tx = session.beginTransaction();
         session.persist(item);
-        session.flush();
+//        session.flush();
+        tx.commit();
         session.close();
         return item;
     }
@@ -35,17 +36,19 @@ public abstract class HibernateRepository<T> {
     public void delete(long id) {
         T item = getById(id);
         Session session = HibernateUtil.getSession();
-        session.beginTransaction();
+        Transaction tx = session.beginTransaction();
+//        session.beginTransaction();
         session.remove(item);
         session.getTransaction().commit();
-        session.flush();
+//        session.flush();
+        tx.commit();
         session.close();
     }
 
     public T getById(long id) {
         T item;
         Session session = HibernateUtil.getSession();
-        session.beginTransaction();
+//        session.beginTransaction();
         item = session.find(typeParameterClass, id);
         session.close();
         return item;
