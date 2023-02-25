@@ -24,9 +24,7 @@ public class Developer {
     @Column
     private String lastName;
 
-//    @ElementCollection(targetClass = Skill.class, fetch = FetchType.EAGER)
-//    @CollectionTable()
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name="developers_skills",
             joinColumns = @JoinColumn( name="developer_ID"),

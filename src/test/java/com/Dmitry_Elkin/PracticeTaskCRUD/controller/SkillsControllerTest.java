@@ -133,4 +133,16 @@ class SkillsControllerTest {
         assertThat(dev2).isEqualTo(developer);
     }
 
+
+
+
+
+    @Test
+    public void getById(){
+        DeveloperRepository developerRepository = new DeveloperRepository();
+        Developer dev2 = developerRepository.getById(7L);
+        System.out.println(dev2);
+    }
+
+
 }
