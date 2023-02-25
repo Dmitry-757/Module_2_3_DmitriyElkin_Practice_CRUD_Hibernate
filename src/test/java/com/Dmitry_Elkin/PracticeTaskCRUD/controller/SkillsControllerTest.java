@@ -1,6 +1,7 @@
 package com.Dmitry_Elkin.PracticeTaskCRUD.controller;
 
 
+import com.Dmitry_Elkin.PracticeTaskCRUD.AppMain;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Developer;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Skill;
 import com.Dmitry_Elkin.PracticeTaskCRUD.model.Specialty;
@@ -45,6 +46,9 @@ class SkillsControllerTest {
         } catch (IllegalAccessException e) {
             System.out.println(e.getMessage());
         }
+
+        AppMain.flyWayClean();
+        AppMain.flyWayMigrations();
 
     }
 
@@ -133,16 +137,6 @@ class SkillsControllerTest {
         assertThat(dev2).isEqualTo(developer);
     }
 
-
-
-
-
-    @Test
-    public void getById(){
-        DeveloperRepository developerRepository = new DeveloperRepository();
-        Developer dev2 = developerRepository.getById(7L);
-        System.out.println(dev2);
-    }
 
 
 }

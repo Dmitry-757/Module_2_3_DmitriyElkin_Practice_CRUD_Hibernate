@@ -2,10 +2,9 @@ package com.Dmitry_Elkin.PracticeTaskCRUD;
 
 
 
-import com.Dmitry_Elkin.PracticeTaskCRUD.utils.HibernateUtil;
+
 import com.Dmitry_Elkin.PracticeTaskCRUD.view.MainView;
 import org.flywaydb.core.Flyway;
-import org.hibernate.Session;
 
 
 public class AppMain {
@@ -24,7 +23,7 @@ public class AppMain {
 
         System.out.println("Start...");
 
-        flyWayMigrations(URL, USER, PASS);
+        flyWayMigrations();
 
         MainView cli = new MainView();
         try {
@@ -33,22 +32,26 @@ public class AppMain {
             System.out.println(e.getMessage());
         }
 
-        Session session = HibernateUtil.getSession();
-
-
         System.out.println("\nstarting...");
         cli.upLevelMenu();
-
-
     }
-    public static void flyWayMigrations(String url, String user, String pass){
+
+    public static void flyWayClean(){
+        var flyWay = Flyway.configure()
+                .cleanDisabled(false)
+                .dataSource(URL, USER, PASS)
+                .locations("classpath:/db/migration")
+                .load();
+        flyWay.clean();
+    }
+
+    public static void flyWayMigrations(){
 //        logger.info("db migration started...");
         var flyWay = Flyway.configure()
-                .dataSource(url, user, pass)
+                .dataSource(URL, USER, PASS)
                 .locations("classpath:/db/migration")
                 .load();
         flyWay.migrate();
-//        logger.info("db migration ended...");
-//        logger.info(".....................");
     }
+
 }
